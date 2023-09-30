@@ -31,7 +31,10 @@ function Cart(){
                 amount: 1,
                 }
             ])
-            console.log(cart)
+            if (cart.length===0)
+            {
+             document.getElementById("but").style.display="none"   
+            }
             function add(i){
             cart[i].amount=cart[i].amount+1
             setcart([...cart])
@@ -55,13 +58,14 @@ function Cart(){
             }
             function abrakadabra(){
                 setcart([])
+                document.getElementById("but").style.display="none"
+               
             }
         return <div className="main">
-            <div style={{display:"flex"}}>
-            <h1>your bag</h1>
-            <p style={{marginLeft:"150px"}}>total product={cart.reduce((a,b)=>a+b.amount,0)}</p>
+            <div id="d1" style={{display:"flex"}}>
+                <p>total product={cart.reduce((a,b)=>a+b.amount,0)}</p>
             </div>
-            
+            <h1>Your Bag</h1>
             {
              cart.map((a,i)=>{
                 return <div className="hi">
@@ -74,13 +78,17 @@ function Cart(){
                                     flexDirection:"column"
                                     ,margin:"0px 50px"}}>
                        <p>{a.title}</p>  
-                      <p>{a.price}</p>  
-                      <p><button onClick={()=>remove(i)}>remove</button></p>
+                      <p>$ {a.price}</p>  
+                      <p><button onClick={()=>remove(i)} className="rem">remove</button></p>
                         </div>
                         <div style={{margin:"auto 50px"}}>
-                        <button onClick={()=>add(i)}>+</button>
-                        <p>{a.amount}</p>
-                        <button onClick={()=>sub(i)}>-</button>
+                        <button onClick={()=>add(i)}className="b1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+</svg></button>
+                        <p>&nbsp;{a.amount}</p>
+                        <button onClick={()=>sub(i)} className="b1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+</svg></button>
                         </div>
                       
                     </div>
@@ -88,15 +96,23 @@ function Cart(){
                 </div>
              })  
                 }
-                <div>
-                    <p>total price={cart.reduce((a,b)=>a+b.amount*b.price,0)}</p>
+                <div style={{display:"flex"}}>
+                    <div style={{marginRight:'450px',fontSize:'20px',fontWeight:'bold'}}>
+                        <p>Total</p>
+                    </div>
+                    <div style={{marginRight:'20px'}}>
+                        <p>=</p>
+                    </div>
+                    <div>
+                        <p>$ {cart.reduce((a,b)=>a+b.amount*b.price,0)}</p>
+                    </div>
                     
 
                 </div>
-               <button onClick={()=>abrakadabra()}>clear Cart</button> 
+               <button onClick={()=>abrakadabra()} id="but" className="abrakadabra">clear Cart</button> 
             
         </div>
 
 
 }
-export default Cart
+export default Cart;

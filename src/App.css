@@ -1,3 +1,11 @@
+body{
+  background-color: rgb(201, 240, 240);
+}
+#d1 p{
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 1300px;
+}
 .hi1{
   display:flex ;
   flex-direction:row;
@@ -24,4 +32,26 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+.b1{
+  border: none;
+  background-color: rgb(201, 240, 240);
+}
+.rem{
+  border: none;
+  background-color: rgb(201, 240, 240);
+  color:red;
+  border-bottom: dotted;
+}
+.abrakadabra{
+  border: 2px solid;
+  background-color: rgb(201, 240, 240);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  color:red;
+  width: 125px;
+  height: 55px;
+  font-size: x-large;
+  font-family:Arial, Helvetica, sans-serif ;
 }
