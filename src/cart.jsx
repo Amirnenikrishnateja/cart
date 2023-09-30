@@ -53,7 +53,9 @@ function Cart(){
                 cart.splice(i,1)
                 setcart([...cart])
             }
-            
+            function abrakadabra(){
+                setcart([])
+            }
         return <div className="main">
             <div style={{display:"flex"}}>
             <h1>your bag</h1>
@@ -91,6 +93,7 @@ function Cart(){
                     
 
                 </div>
+               <button onClick={()=>abrakadabra()}>clear Cart</button> 
             
         </div>
 
